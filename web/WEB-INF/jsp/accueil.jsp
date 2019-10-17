@@ -11,6 +11,6 @@
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/style.css"/>
 </head>
 <body>
-Sur le jeu
+Sur le jeu ${sessionScope.userConnected.bestScore}
 </body>
 </html>

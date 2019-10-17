@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `score` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(30) NOT NULL,
+  `login` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `connections` int(5) NOT NULL DEFAULT '0',
   `best_score` int(2) NOT NULL DEFAULT '0',
