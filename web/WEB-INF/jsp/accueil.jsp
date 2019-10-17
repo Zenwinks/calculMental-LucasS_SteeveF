@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Identifiez-vous</title>
+    <title>Accueil</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
@@ -21,34 +21,21 @@
     </div>
 </div>
 <div class="row small-8 small-centered">
-<h1>TOP 10</h1>
+    <h1>TOP 10</h1>
 </div>
-<div class="row small-8 small-centered">
+<div class="leaderboard">
     <table>
         <thead>
         <tr>
-            <th>Nom complet</th>
-            <th>Email</th>
-            <th>Salaire</th>
-            <th class="text-center">Actions</th>
+            <th>Pseudo</th>
+            <th width="10%">Meilleur score</th>
         </tr>
         </thead>
         <tbody>
-        <form id="delete-form" action="persons" method="POST">
-            <input id="form-method" type="hidden" name="form-method" value="DELETE"/>
-            <input id="form-id" type="hidden" name="form-id" value=""/>
-        </form>
-        <c:forEach var="person" items="${ sessionScope.persons }" varStatus="status">
+        <c:forEach var="leader" items="${ sessionScope.leaders }" varStatus="status">
             <tr>
-                <td>${person.name}</td>
-                <td>${person.email}</td>
-                <td>${person.salary}</td>
-                <td class="text-center">
-                    <a class="button" href="<c:url value="/persons?action=details&id=${status.index}" />"><i
-                            class="fa fa-edit"></i></a>
-                    <a class="button alert delete-link" data-id-to-del="${status.index}"
-                       href="javascript:void(0);"><i class="fa fa-user-times"></i></a>
-                </td>
+                <td>${leader.login}</td>
+                <td>${leader.bestScore}</td>
             </tr>
         </c:forEach>
         </tbody>

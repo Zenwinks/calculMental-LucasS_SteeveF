@@ -1,5 +1,7 @@
 package controller;
 
+import model.AccueilBean;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,8 @@ public class AccueilController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LOGGER.log( Level.INFO, "Request : " + request);
+        AccueilBean model = new AccueilBean();
+        model.getLeaders(request);
         request.getRequestDispatcher(PAGE_ACCUEIL_JSP).forward(request, response);
     }
 

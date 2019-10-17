@@ -13,22 +13,21 @@ public class AccueilDAOJDBC extends DataAccessObjectJDBC<User> {
         super(dbUrl, dbLogin, dbPwd);
     }
 
-    public List<User> leaderboard(String login, String password) throws SQLException {
-        List<User> leaderboard = null;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbLogin, dbPwd);
-             PreparedStatement ps = connection.prepareStatement(GET_LEADERBOARD)) {
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    User user = new User();
-                    user.setLogin(rs.getString("login"));
-                    user.setPassword(rs.getString("password"));
-                    user.setBestScore(rs.getInt("best_score"));
-                    leaderboard.add(user);
-                }
-            }
-        }
-        return leaderboard;
-    }
+//    public List<User> leaderboard() throws SQLException {
+//        List<User> leaderboard = null;
+//        try (Connection connection = DriverManager.getConnection(dbUrl, dbLogin, dbPwd);
+//             PreparedStatement ps = connection.prepareStatement(GET_LEADERBOARD)) {
+//            try (ResultSet rs = ps.executeQuery()) {
+//                if (rs.next()) {
+//                    User user = new User();
+//                    user.setLogin(rs.getString("login"));
+//                    user.setBestScore(rs.getInt("best_score"));
+//                    leaderboard.add(user);
+//                }
+//            }
+//        }
+//        return leaderboard;
+//    }
 
     @Override
     public void create(User object) {
