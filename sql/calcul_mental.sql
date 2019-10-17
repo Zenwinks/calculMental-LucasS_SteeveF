@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 17 oct. 2019 à 07:19
+-- Généré le :  jeu. 17 oct. 2019 à 09:15
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -27,6 +27,21 @@ USE `calcul_mental`;
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `score`
+--
+
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE IF NOT EXISTS `score` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `score` int(2) NOT NULL DEFAULT '0',
+  `id_user` int(5) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user` (`id_user`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -35,10 +50,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `connections` int(5) NOT NULL,
-  `best_score` int(2) NOT NULL,
+  `connections` int(5) NOT NULL DEFAULT '0',
+  `best_score` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `pseudo`, `password`, `connections`, `best_score`) VALUES
+(1, 'toto', 'toto', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

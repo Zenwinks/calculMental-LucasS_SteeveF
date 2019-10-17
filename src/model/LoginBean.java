@@ -19,34 +19,35 @@ public class LoginBean implements Serializable {
     private String pwd;
     private String authentResult;
 
-    public LoginBean() {}
+    public LoginBean() {
+    }
 
-    public void authenticate( HttpServletRequest request ) {
+    public void authenticate(HttpServletRequest request) {
 
-        login = request.getParameter( FORM_FIELD_LOGIN );
-        pwd = request.getParameter( FORM_FIELD_PWD );
-        UserDAOJDBC dao = ( UserDAOJDBC ) DAOFactory.getUserDAO();
+        login = request.getParameter(FORM_FIELD_LOGIN);
+        pwd = request.getParameter(FORM_FIELD_PWD);
+        UserDAOJDBC dao = (UserDAOJDBC) DAOFactory.getUserDAO();
         User user = null;
         try {
-            user = dao.authenticate( login, pwd );
+            user = dao.authenticate(login, pwd);
 
-            if ( user != null ) {
-                HttpSession session = request.getSession( true );
+            if (user != null) {
+                HttpSession session = request.getSession(true);
                 //TODO récupération et incrémentation du nombre de connexions
-                session.setAttribute( ATT_AUTH_SESSION, user );
+                session.setAttribute(ATT_AUTH_SESSION, user);
                 authentResult = "Authentification réussie : Bienvenue " + login;
             } else {
-                authentResult = "Authentification échouée !!!";
+                authentResult = "Authentification échouée...";
             }
-        } catch ( SQLException e ) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
-            authentResult = "Authentification échouée : Pb de connexion à la base de données !!! ";
+            authentResult = "Authentification échouée : Problème de connexion à la base de données ";
         }
     }
 
-    public boolean isConnected( HttpServletRequest request ) {
+    public boolean isConnected(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        User connectedUser = ( User ) session.getAttribute( ATT_AUTH_SESSION );
+        User connectedUser = (User) session.getAttribute(ATT_AUTH_SESSION);
         return connectedUser != null;
     }
 
@@ -54,7 +55,7 @@ public class LoginBean implements Serializable {
         return login;
     }
 
-    public void setLogin( String login ) {
+    public void setLogin(String login) {
         this.login = login;
     }
 
@@ -62,7 +63,7 @@ public class LoginBean implements Serializable {
         return pwd;
     }
 
-    public void setPwd( String pwd ) {
+    public void setPwd(String pwd) {
         this.pwd = pwd;
     }
 
@@ -70,7 +71,7 @@ public class LoginBean implements Serializable {
         return authentResult;
     }
 
-    public void setAuthentResult( String authentResult ) {
+    public void setAuthentResult(String authentResult) {
         this.authentResult = authentResult;
     }
 }

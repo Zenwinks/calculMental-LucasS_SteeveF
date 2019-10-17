@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gestion des salariés - Indentifiez-vous</title>
+    <title>Indentifiez-vous</title>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
@@ -13,7 +13,7 @@
 <body>
 <div class="callout large primary">
     <div class="row column text-center">
-        <h1>Gestion des salariés - Login</h1>
+        <h1>Jeu Calcul Mental</h1>
     </div>
 </div>
 <div class="row small-5 small-centered">
@@ -26,7 +26,7 @@
 
     <form method="POST" action="login">
         <div class="form-icons">
-            <h4>Boîte de login</h4>
+            <h4>Identifiez-vous</h4>
             <div class="input-group">
 						<span class="input-group-label">
 							<i class="fa fa-user"></i>
@@ -44,6 +44,7 @@
         </div>
         <button class="button expanded">Valider</button>
     </form>
+    <button class="button expanded">Pas encore de compte ? Enregistrez-vous</button>
 
 
 </div>
