@@ -7,13 +7,15 @@ public class User implements Serializable {
     private String login;
     private String password;
     private int nbConnections;
+    private int bestScore;
 
     public User() {}
 
-    public User( String login, String password, int nbConnections ) {
+    public User(String login, String password, int nbConnections, int bestScore) {
         this.login = login;
         this.password = password;
         this.nbConnections = nbConnections;
+        this.bestScore = bestScore;
     }
 
     public String getLogin() {
@@ -38,5 +40,13 @@ public class User implements Serializable {
 
     public void setNbConnections( int nbConnections ) {
         this.nbConnections = nbConnections;
+    }
+
+    public int getBestScore() {
+        return bestScore;
+    }
+
+    public void setBestScore(int bestScore) {
+        this.bestScore = bestScore;
     }
 }
