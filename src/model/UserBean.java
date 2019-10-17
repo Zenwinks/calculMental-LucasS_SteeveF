@@ -9,17 +9,17 @@ import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.sql.SQLException;
 
-public class LoginBean implements Serializable {
+public class UserBean implements Serializable {
 
     private static final String FORM_FIELD_LOGIN = "form-login";
     private static final String FORM_FIELD_PWD = "form-pwd";
-    public static final String ATT_AUTH_SESSION = "isConntected";
+    public static final String ATT_AUTH_SESSION = "userConnected";
 
     private String login;
     private String pwd;
     private String authentResult;
 
-    public LoginBean() {
+    public UserBean() {
     }
 
     public void authenticate(HttpServletRequest request) {
@@ -37,7 +37,7 @@ public class LoginBean implements Serializable {
                 session.setAttribute(ATT_AUTH_SESSION, user);
                 authentResult = "Authentification réussie : Bienvenue " + login;
             } else {
-                authentResult = "Authentification échouée...";
+                authentResult = "Authentification échouée : Le login ou le mot de passe n'est pas reconnu";
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

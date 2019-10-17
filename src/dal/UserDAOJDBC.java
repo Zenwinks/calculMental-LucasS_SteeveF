@@ -36,7 +36,6 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
                     user.setLogin(rs.getString("login"));
                     user.setPassword(rs.getString("password"));
                     user.setNbConnections(rs.getInt("connections") + 1);
-                    //TODO mise à jour du nombre connexions
                 }
             }
         }
