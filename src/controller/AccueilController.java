@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet( urlPatterns = {"/login"} )
-public class LoginController extends HttpServlet {
+@WebServlet ( urlPatterns = {"/accueil"})
+public class AccueilController extends HttpServlet {
 
-    private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/login.jsp";
-    private static final String PAGE_HOME_JSP = "/game";
+    private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/accueil.jsp";
+    private static final String PAGE_HOME_JSP = "/accueil";
 
     @Override
-    protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         LoginBean model = new LoginBean();
         if ( model.isConnected( request ) ) {
