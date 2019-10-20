@@ -13,13 +13,18 @@
 <body>
 <div class="callout large primary">
     <div class="row column text-center">
-        <h1>Jeu</h1>
+        <h1>Résultats</h1>
     </div>
 </div>
-<form method="POST" action="jeu">
-    <span class="input-group-label">${calcul}</span>
-    <input type="number" class="input-group-field" name="form-reponse" required>
-    <input type="submit" value="${buttonValue}">
-</form>
+<c:forEach var="question" items="${ questions }" varStatus="status">
+    <div>
+        <span><b>Calcul : </b>${question.calcul}</span><br>
+        <span>Votre réponse : <i>${question.reponseUser}</i></span>
+        <c:if test="${question.reponseUser != question.resultat}">
+            <span style="color: red"><b>La bonne réponse était : ${question.resultat}</b></span>
+        </c:if>
+    </div>
+</c:forEach>
+
 </body>
 </html>

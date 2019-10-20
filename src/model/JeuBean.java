@@ -27,7 +27,7 @@ public class JeuBean implements Serializable {
 
         int i = (int)session.getAttribute("nbQuestions");
         session.setAttribute("nbQuestions", ++i);
-        if (i == 10){
+        if (i == 2){
             session.setAttribute("buttonValue", "Terminer le jeu");
         }
 
@@ -37,6 +37,6 @@ public class JeuBean implements Serializable {
     }
 
     public void setResultatFinal(HttpServletRequest request){
-
+        List
     }
 }
