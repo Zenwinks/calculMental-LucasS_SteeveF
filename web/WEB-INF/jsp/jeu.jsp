@@ -18,7 +18,7 @@
 </div>
 <form method="POST" action="jeu">
     <span class="input-group-label">${calcul}</span>
-    <input type="number" class="input-group-field" name="form-reponse" required>
+    <input type="number" step="0.01" class="input-group-field" name="form-reponse" required>
     <input type="submit" value="${buttonValue}">
 </form>
 </body>

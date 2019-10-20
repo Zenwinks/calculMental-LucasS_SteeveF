@@ -37,6 +37,6 @@ public class JeuBean implements Serializable {
     }
 
     public void setResultatFinal(HttpServletRequest request){
-        List
+
     }
 }

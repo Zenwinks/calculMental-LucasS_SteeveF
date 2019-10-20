@@ -8,6 +8,5 @@ public class Test {
         Expression ex = new Expression();
         String rep = ex.generation();
         System.out.println(rep);
-        System.out.println(ex.generateCalcVisuel(rep));
     }
 }
