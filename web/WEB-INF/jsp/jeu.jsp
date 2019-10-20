@@ -17,7 +17,7 @@
     </div>
 </div>
 <form method="POST" action="jeu">
-    <span class="input-group-label">${calcul}</span>
+    <span class="input-group-label">${calcul} (arrondir au deuxième chiffre après la virgule)</span>
     <input type="number" step="0.01" class="input-group-field" name="form-reponse" required>
     <input type="submit" value="${buttonValue}">
 </form>
