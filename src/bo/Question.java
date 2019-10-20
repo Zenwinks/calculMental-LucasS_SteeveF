@@ -6,6 +6,7 @@ public class Question implements Serializable {
 
     private String calcul;
     private String resultat;
+    private String reponseUser;
 
     public Question(String calcul, String resultat) {
         this.calcul = calcul;
@@ -26,5 +27,13 @@ public class Question implements Serializable {
 
     public void setResultat(String resultat) {
         this.resultat = resultat;
+    }
+
+    public String getReponseUser() {
+        return reponseUser;
+    }
+
+    public void setReponseUser(String reponseUser) {
+        this.reponseUser = reponseUser;
     }
 }
