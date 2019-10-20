@@ -41,6 +41,15 @@ public class JeuBean implements Serializable {
         session.setAttribute("questions", questions);
     }
 
+    public boolean verifReponse(String repProp,String solution){
+        if(Double.parseDouble(repProp) == (Double.parseDouble(solution))){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public void setResultatFinal(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         List<Question> questions = (List<Question>) session.getAttribute("questions");
