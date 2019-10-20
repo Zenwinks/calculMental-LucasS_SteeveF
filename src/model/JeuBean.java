@@ -56,9 +56,7 @@ public class JeuBean implements Serializable {
         int score = 0;
 
         for (Question question : questions) {
-            System.out.println(question.getResultat());
-            System.out.println(question.getReponseUser());
-            if (question.getResultat().equals(question.getReponseUser())) {
+            if (verifReponse(question.getResultat().replace(',', '.'), question.getReponseUser().replace(',', '.'))) {
                 score++;
             }
         }
@@ -69,14 +67,16 @@ public class JeuBean implements Serializable {
         JeuDAOJDBC daoJeu = (JeuDAOJDBC) DAOFactory.getJeuDAO();
 
         User user = (User) session.getAttribute("isConnected");
-//        try {
-//            if (user.getBestScore() < score) {
-//                user.setBestScore(score);
-//                daoUser.updateBestScore(score, user.getId());
-//            }
-//            daoJeu.insertScore(user.getId(), score);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        System.out.println("here");
+        System.out.println(user.toString());
+        try {
+            if (score > user.getBestScore()) {
+                user.setBestScore(score);
+                daoUser.updateBestScore(score, user.getId());
+            }
+            daoJeu.insertScore(user.getId(), score);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

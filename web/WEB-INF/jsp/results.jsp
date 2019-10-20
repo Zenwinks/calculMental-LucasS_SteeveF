@@ -19,11 +19,11 @@
 <c:forEach var="question" items="${ questions }" varStatus="status">
     <div>
         <span><b>Calcul : </b>${question.getCalcul()}</span><br>
-        <c:if test="${question.getReponseUser().equals(question.getResultat())}">
+        <c:if test="${Double.parseDouble(question.getReponseUser().replace(',','.')) != Double.parseDouble(question.getResultat().replace(',','.'))}">
             <span>Votre réponse : <i>${question.getReponseUser()}</i></span><br>
             <span style="color: red"><b>La bonne réponse était : ${question.getResultat()}</b></span><br>
         </c:if>
-        <c:if test="${!question.getReponseUser().equals(question.getResultat())}">
+        <c:if test="${Double.parseDouble(question.getReponseUser().replace(',','.')) == Double.parseDouble(question.getResultat().replace(',','.'))}">
             <span style="color: green">Votre réponse : <i>${question.getReponseUser()}</i></span><br>
         </c:if>
     </div>
