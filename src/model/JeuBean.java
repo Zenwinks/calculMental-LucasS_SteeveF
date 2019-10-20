@@ -32,7 +32,7 @@ public class JeuBean implements Serializable {
 
         int i = (int) session.getAttribute("nbQuestions");
         session.setAttribute("nbQuestions", ++i);
-        if (i == 2) {
+        if (i == 10) {
             session.setAttribute("buttonValue", "Terminer le jeu");
         }
 
@@ -66,9 +66,7 @@ public class JeuBean implements Serializable {
         UserDAOJDBC daoUser = (UserDAOJDBC) DAOFactory.getUserDAO();
         JeuDAOJDBC daoJeu = (JeuDAOJDBC) DAOFactory.getJeuDAO();
 
-        User user = (User) session.getAttribute("isConnected");
-        System.out.println("here");
-        System.out.println(user.toString());
+        User user = (User) session.getAttribute("userConnected");
         try {
             if (score > user.getBestScore()) {
                 user.setBestScore(score);

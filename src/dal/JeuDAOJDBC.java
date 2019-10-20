@@ -19,8 +19,8 @@ public class JeuDAOJDBC extends DataAccessObjectJDBC<Jeu>{
     public void insertScore(int idUser, int score) throws SQLException {
         try (Connection connection = DriverManager.getConnection(dbUrl, dbLogin, dbPwd);
              PreparedStatement ps = connection.prepareStatement(INSERT_SCORE_QUERY)) {
-            ps.setInt(1, idUser);
-            ps.setInt(2, score);
+            ps.setInt(1, score);
+            ps.setInt(2, idUser);
             ps.executeUpdate();
         }
     }

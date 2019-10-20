@@ -23,7 +23,7 @@ public class JeuController extends HttpServlet {
         JeuBean model = new JeuBean();
         HttpSession session = request.getSession(true);
         int i = (int)session.getAttribute("nbQuestions");
-        if (i < 2){
+        if (i < 10){
             model.getQuestion(request);
             request.getRequestDispatcher(PAGE_JEU_JSP).forward(request, response);
         } else {
