@@ -44,7 +44,9 @@
         </div>
         <button class="button expanded">Valider</button>
     </form>
-    <button class="button expanded">Pas encore de compte ? Enregistrez-vous</button>
+    <a href="register">
+        <button class="button expanded">Pas encore de compte ? Enregistrez-vous</button>
+    </a>
 
 
 </div>

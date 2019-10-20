@@ -19,6 +19,11 @@ public class User implements Serializable {
         this.bestScore = bestScore;
     }
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public String getLogin() {
         return login;
     }
