@@ -17,8 +17,5 @@ public class Test {
         System.out.println(rep);
 
         System.out.println(ex.resolution(rep));
-
-        //JeuDAOJDBC dao = new JeuDAOJDBC("jdbc:mysql://localhost:3306/calcul_mental?serverTimezone=UTC","root","");
-        //dao.insertScore(1,6);
     }
 }
