@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 17 oct. 2019 à 09:15
+-- Généré le :  Dim 20 oct. 2019 à 19:49
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -37,7 +37,18 @@ CREATE TABLE IF NOT EXISTS `score` (
   `id_user` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `score`
+--
+
+INSERT INTO `score` (`id`, `score`, `id_user`) VALUES
+(1, 5, 1),
+(2, 3, 1),
+(3, 3, 2),
+(4, 4, 3),
+(5, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -52,15 +63,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL,
   `connections` int(5) NOT NULL DEFAULT '0',
   `best_score` int(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `pseudo`, `password`, `connections`, `best_score`) VALUES
-(1, 'toto', 'toto', 0, 0);
+INSERT INTO `user` (`id`, `login`, `password`, `connections`, `best_score`) VALUES
+(1, 'toto', 'toto', 2, 5),
+(2, 'tata', 'tata', 1, 3),
+(3, 'titi', 'titi', 2, 8);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
