@@ -4,11 +4,18 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import java.util.StringTokenizer;
 
 public class Expression {
 
-    public String generation(int nbChiffres, int valMax){
+    public Expression() {
+    }
+
+    public String generation(){
+        int min = 3;
+        int max = 6;
+        int nbChiffres = min + (int)(Math.random() * ((max - min) + 1));
+        int valMax = 50;
+
         List<String> tab = new ArrayList<>();
         for (Operateur op : Operateur.values()) {
             tab.add(op.toString());
@@ -34,7 +41,7 @@ public class Expression {
         Double dou = Double.parseDouble(res.replace(',','.'));
         if (dou.isNaN())
         {
-            String resultatF = generation(nbChiffres,valMax);
+            String resultatF = generation();
             return resultatF;
         }
         else{

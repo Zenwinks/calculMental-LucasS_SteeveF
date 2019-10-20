@@ -16,7 +16,10 @@
         <h1>Jeu</h1>
     </div>
 </div>
-<input>
-<button class="button expanded">Soumettre réponse</button>
+<form method="POST" action="jeu">
+    <span class="input-group-label">${calcul}</span>
+    <input type="number" class="input-group-field" name="form-reponse" value="">
+    <input type="submit" value="${buttonValue}">
+</form>
 </body>
 </html>
