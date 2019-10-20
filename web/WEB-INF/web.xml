@@ -22,11 +22,11 @@
     </context-param>
     <context-param>
         <param-name>DB_PWD</param-name>
-        <param-value></param-value>
+        <param-value>root</param-value>
     </context-param>
 
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>4</session-timeout>
     </session-config>
 
     <jsp-config>

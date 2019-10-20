@@ -18,13 +18,18 @@
 </div>
 <c:forEach var="question" items="${ questions }" varStatus="status">
     <div>
-        <span><b>Calcul : </b>${question.calcul}</span><br>
-        <span>Votre réponse : <i>${question.reponseUser}</i></span>
-        <c:if test="${question.reponseUser != question.resultat}">
-            <span style="color: red"><b>La bonne réponse était : ${question.resultat}</b></span>
+        <span><b>Calcul : </b>${question.getCalcul()}</span><br>
+        <span>Votre réponse : <i>${question.getReponseUser()}</i></span><br>
+        <c:if test="${question.getReponseUser() != question.getResultat()}">
+            <span style="color: red"><b>La bonne réponse était : ${question.getResultat()}</b></span><br>
         </c:if>
     </div>
 </c:forEach>
-
+<div class="score">
+    Score de ${scoreFinal} sur 10 !
+</div>
+<a href="accueil" class="button large">
+    Retour à l'accueil
+</a>
 </body>
 </html>

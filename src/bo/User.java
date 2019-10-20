@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+    private int id;
     private String login;
     private String password;
     private int nbConnections;
@@ -48,5 +49,13 @@ public class User implements Serializable {
 
     public void setBestScore(int bestScore) {
         this.bestScore = bestScore;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

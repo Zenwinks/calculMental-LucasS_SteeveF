@@ -51,9 +51,11 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
                         user = new User();
+                        user.setId(rs.getInt("id"));
                         user.setLogin(rs.getString("login"));
                         user.setPassword(rs.getString("password"));
                         user.setNbConnections(rs.getInt("connections") + 1);
+                        user.setBestScore(rs.getInt("best_score"));
                     }
                 }
         }
