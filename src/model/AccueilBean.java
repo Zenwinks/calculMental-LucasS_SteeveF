@@ -2,7 +2,6 @@ package model;
 
 
 import bo.User;
-import dal.AccueilDAOJDBC;
 import dal.DAOFactory;
 import dal.UserDAOJDBC;
 

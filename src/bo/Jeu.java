@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class Jeu implements Serializable {
 
-    private String pseudo;
+    private String login;
     private int score;
 
     public Jeu(){
 
     }
 
-    public Jeu(String pseudo, int score) {
-        this.pseudo = pseudo;
+    public Jeu(String login, int score) {
+        this.login = login;
         this.score = score;
     }
 
-    public String getPseudo() {
-        return pseudo;
+    public String getLogin() {
+        return login;
     }
 
     public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
+        this.login = pseudo;
     }
 
     public int getScore() {

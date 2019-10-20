@@ -32,14 +32,14 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
              PreparedStatement ps = connection.prepareStatement(AUTHENT_QUERY)) {
             ps.setString(1, login);
             ps.setString(2, password);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    user = new User();
-                    user.setLogin(rs.getString("login"));
-                    user.setPassword(rs.getString("password"));
-                    user.setNbConnections(rs.getInt("connections") + 1);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        user = new User();
+                        user.setLogin(rs.getString("login"));
+                        user.setPassword(rs.getString("password"));
+                        user.setNbConnections(rs.getInt("connections") + 1);
+                    }
                 }
-            }
         }
         return user;
     }

@@ -30,11 +30,17 @@ public class Expression {
 
         resultat.append(tab.get(rand(4)) + " ");
         resultat.append(tab.get(randUnaire(2)) + " ");
-        if (resolution(resultat.toString()) == null)
+        String res =resolution(resultat.toString());
+        Double dou = Double.parseDouble(res.replace(',','.'));
+        if (dou.isNaN())
         {
-            generation(nbChiffres,valMax);
+            String resultatF = generation(nbChiffres,valMax);
+            return resultatF;
         }
-        return resultat.toString();
+        else{
+            return resultat.toString();
+        }
+
     }
 
     public String resolution(String calcul){
