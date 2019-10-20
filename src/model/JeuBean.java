@@ -47,7 +47,9 @@ public class JeuBean implements Serializable {
         int score = 0;
 
         for (Question question : questions) {
-            if (question.getResultat() == question.getReponseUser()) {
+            System.out.println(question.getResultat());
+            System.out.println(question.getReponseUser());
+            if (question.getResultat().equals(question.getReponseUser())) {
                 score++;
             }
         }
