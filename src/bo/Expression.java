@@ -33,7 +33,7 @@ public class Expression {
         return resultat.toString();
     }
 
-    public Double resolveCalcul(String calcul){
+    public Double resolution(String calcul){
 
         Double solution = 0d;
         Stack<Double> stack = new Stack();
