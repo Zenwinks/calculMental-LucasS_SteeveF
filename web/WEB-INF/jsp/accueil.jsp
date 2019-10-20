@@ -40,5 +40,10 @@
         </c:forEach>
         </tbody>
     </table>
+    <a href="jeu">
+    <button type="button" class="button">
+        Jouer
+    </button>
+    </a>
 </body>
 </html>
