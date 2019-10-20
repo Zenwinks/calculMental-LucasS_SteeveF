@@ -21,10 +21,10 @@ public enum Operateur {
     public double eval(double... operands){
         double solution = 0;
         switch (this) {
-            case DIV:
+            case MULTI:
                 solution = operands[0] * operands[1];
                 break;
-            case MULTI:
+            case DIV:
                 solution = operands[0] / operands[1];
                 break;
             case PLUS:

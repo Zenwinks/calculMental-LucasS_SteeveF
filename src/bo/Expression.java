@@ -1,5 +1,6 @@
 package bo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -7,59 +8,59 @@ import java.util.StringTokenizer;
 
 public class Expression {
 
-    public String generation(int difficulte, int fourchette){
-        List<String> tabOp = new ArrayList<>();
+    public String generation(int nbChiffres, int valMax){
+        List<String> tab = new ArrayList<>();
         for (Operateur op : Operateur.values()) {
-            tabOp.add(op.toString());
+            tab.add(op.toString());
         }
         StringBuilder resultat = new StringBuilder();
         int base = 0;
 
-        base += rand(fourchette) + 1;
+        base += rand(valMax) + 1;
         resultat.append(base + " ");
-        for (int i=0; i < difficulte -1 ; i++) {
-            int operande = 0;
-            operande += rand(fourchette) + 1;
-            resultat.append(operande + " ");
-            resultat.append(tabOp.get(rand(4)) + " ");
+        for (int i=0; i < nbChiffres -1 ; i++) {
+            int ope = 0;
+            ope += rand(valMax) + 1;
+            resultat.append(ope + " ");
+            resultat.append(tab.get(rand(4)) + " ");
         }
-        int operandeUnaire = 0;
-        operandeUnaire += rand(fourchette);
-        resultat.append(operandeUnaire + " ");
+        int opeUn = 0;
+        opeUn += rand(valMax);
+        resultat.append(opeUn + " ");
 
-        resultat.append(tabOp.get(rand(4)) + " ");
-        resultat.append(tabOp.get(randUnaire(2)) + " ");
-
+        resultat.append(tab.get(rand(4)) + " ");
+        resultat.append(tab.get(randUnaire(2)) + " ");
+        if (resolution(resultat.toString()) == null)
+        {
+            generation(nbChiffres,valMax);
+        }
         return resultat.toString();
     }
 
-    public Double resolution(String calcul){
-
-        Double solution = 0d;
+    public String resolution(String calcul){
         Stack<Double> stack = new Stack();
-        StringTokenizer stok = new StringTokenizer(calcul, " ");
-        while (stok.hasMoreTokens()) {
-            String token = stok.nextToken();
-
+        String[] split = calcul.split("\\s+");
+        for(String str : split){
             try {
-                Operateur op = Operateur.valueOf(token);
-                if ( op.getType() == 1 ) {
-                    Double op1 = 0d;
-                    Double op2 = 0d;
-                    op2 = stack.pop();
-                    op1 = stack.pop();
-                    stack.push(op.eval(op1, op2));
-                } else {
-                    Double op1 = 0d;
-                    op1 = stack.pop();
+                Operateur op = Operateur.valueOf(str);
+                if(op.getType() == 0){
+                    Double op1 = stack.pop();
+                    Double op2 = stack.pop();
+                    stack.push(op.eval(op2,op1));
+                }
+                else if (op.getType() ==1){
+                    Double op1 = stack.pop();
                     stack.push(op.eval(op1));
                 }
-            } catch (Exception e ) {
-                stack.push(Double.parseDouble(token));
+            }
+            catch (Exception e){
+                stack.push(Double.parseDouble(str));
             }
         }
-        solution = stack.pop();
-        return solution;
+        Double resultat = stack.pop();
+        DecimalFormat df = new DecimalFormat("0.00");
+        String resultatFinal = df.format(resultat);
+        return resultatFinal;
     }
 
 
