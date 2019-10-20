@@ -22,7 +22,7 @@
     </div>
 </c:if>
 <div class="row small-5 small-centered">
-    <form method="POST" action="login">
+    <form method="POST" action="register">
         <div class="form-icons">
             <h4>Enregistrez-vous</h4>
             <div class="input-group">

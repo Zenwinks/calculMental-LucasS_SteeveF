@@ -21,11 +21,12 @@ public class RegisterBean implements Serializable {
     public void createUser(HttpServletRequest request) {
         login = request.getParameter("form-login");
         pwd = request.getParameter("form-pwd");
+        creationResult = "";
 
         User user = new User(login, pwd);
-        UserDAOJDBC dao = (UserDAOJDBC)DAOFactory.getUserDAO();
+        UserDAOJDBC dao = (UserDAOJDBC) DAOFactory.getUserDAO();
 
-        try{
+        try {
             dao.create(user);
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -22,7 +22,7 @@
     </context-param>
     <context-param>
         <param-name>DB_PWD</param-name>
-        <param-value></param-value>
+        <param-value>root</param-value>
     </context-param>
 
     <session-config>

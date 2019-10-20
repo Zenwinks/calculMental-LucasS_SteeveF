@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class RegisterController extends HttpServlet {
 
     private static final String PAGE_REGISTER_JSP = "/WEB-INF/jsp/register.jsp";
-    private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/register.jsp";
+    private static final String PAGE_LOGIN_JSP = "/WEB-INF/jsp/login.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
