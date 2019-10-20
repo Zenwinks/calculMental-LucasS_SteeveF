@@ -11,9 +11,6 @@
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/style.css"/>
 </head>
 <html>
-<head>
-    <title>Calcul Mental</title>
-</head>
 <body>
 <div class="callout large primary">
     <div class="row column text-center">
@@ -23,27 +20,30 @@
 <div class="row small-8 small-centered">
     <h1>TOP 10</h1>
 </div>
-<div class="leaderboard">
-    <table>
-        <thead>
-        <tr>
-            <th>Pseudo</th>
-            <th width="10%">Meilleur score</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="leader" items="${ sessionScope.leaders }" varStatus="status">
+<div class="row">
+    <div class="columns small-5">
+        <table>
+            <thead>
             <tr>
-                <td>${leader.login}</td>
-                <td>${leader.bestScore}</td>
+                <th>Pseudo</th>
+                <th>Meilleur score</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <a href="jeu">
-    <button type="button" class="button">
-        Jouer
-    </button>
-    </a>
+            </thead>
+            <tbody>
+            <c:forEach var="leader" items="${ sessionScope.leaders }" varStatus="status">
+                <tr>
+                    <td>${leader.login}</td>
+                    <td>${leader.bestScore}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    <div class="columns small-7">
+        <a href="jeu" class="button expanded">
+            Jouer
+        </a>
+    </div>
+</div>
 </body>
 </html>
