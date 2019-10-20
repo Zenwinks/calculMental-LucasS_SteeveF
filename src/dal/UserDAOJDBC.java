@@ -10,14 +10,20 @@ public class UserDAOJDBC extends DataAccessObjectJDBC<User> {
 
     private static final String AUTHENT_QUERY = "SELECT * FROM user WHERE login = ? AND password = ?";
     private static final String GET_LEADERBOARD = "SELECT login,best_score FROM user ORDER BY best_score DESC LIMIT 10";
+    private static final String NEW_USER_QUERY = "INSERT INTO user VALUES (null,?,?,0,0)";
 
     public UserDAOJDBC(String dbUrl, String dbLogin, String dbPwd) {
         super(dbUrl, dbLogin, dbPwd);
     }
 
     @Override
-    public void create(User objet) {
-
+    public void create(User newUser) throws SQLException {
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbLogin, dbPwd);
+             PreparedStatement ps = connection.prepareStatement(NEW_USER_QUERY)) {
+            ps.setString(1,newUser.getLogin());
+            ps.setString(2,newUser.getPassword());
+            ps.executeUpdate();
+        }
     }
 
     @Override

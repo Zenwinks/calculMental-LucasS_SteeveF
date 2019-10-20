@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Expression {
 
@@ -47,7 +48,6 @@ public class Expression {
         else{
             return resultat.toString();
         }
-
     }
 
     public String resolution(String calcul){
